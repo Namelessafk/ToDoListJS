@@ -62,6 +62,7 @@ header {
   white-space: nowrap;
 }
 header .upper {
+  display: flex;
   position: relative;
   transform: rotate(-90deg) translateX(-100px);
 }
@@ -69,9 +70,9 @@ header .upper::after {
   content: "";
   position: absolute;
   top: 50%;
-  width: 30px;
+  width: 120px;
   height: 1px;
-  margin-left: 1rem;
+  margin-left: 0rem;
   background: #1a1a1a;
 }
 header .lower {
@@ -82,8 +83,11 @@ header .lower {
 header .lower svg {
   width: 25px;
 }
-header .lower h6 {
-  padding-left: 1rem;
+header .lower a {
+  text-decoration: none;
+  color: #000000;
+  font-weight: bold;
+  margin: 0 0 4px 10px;
 }
 
 h1, h2, h3 {

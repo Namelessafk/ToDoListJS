@@ -70,6 +70,7 @@ header {
   white-space: nowrap;
 
   .upper {
+    display: flex;
     position: relative;
     transform: rotate(-90deg) translateX(-100px);
 
@@ -77,9 +78,9 @@ header {
       content: '';
       position: absolute;
       top: 50%;
-      width: 30px;
+      width: 120px;
       height: 1px;
-      margin-left: 1rem;
+      margin-left: 0rem;
       background: #1a1a1a;
     }
   }
@@ -93,9 +94,13 @@ header {
       width: 25px;
     }
 
-    h6 {
-      padding-left: 1rem;
+    a {
+      text-decoration: none;
+      color: #000000;
+      font-weight: bold;
+      margin: 0 0 4px 10px;
     }
+    
   }
 }
 
