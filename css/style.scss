@@ -33,16 +33,21 @@ body{
 
 main {
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
   height: inherit;
+  width: 90%;
+  flex-direction: column;
+  align-items: center;
 
   .center-triangle {
     width: 300px;
+    position: absolute;
+    z-index: -5;
+    
+    
 
     .triangle {
       fill: #fff;
-      stroke: #1a1a1a;
+      stroke: #000000;
       stroke-width: 1;
     }
 
@@ -53,6 +58,36 @@ main {
     }
   }
 }
+
+.item{
+  display: flex;
+  background: #ffffff;
+  background-color: transparent;
+  backdrop-filter: blur(3px);
+  padding: 2rem 0rem;
+  border-radius: var(--size-radius);
+  border: 3px solid var(--color-dark);
+  box-shadow: .5rem .5rem 0 #000000;
+  margin:calc(var(--size-bezel) * 3);
+  margin-left: 11vw;
+  width: 40vw;
+}
+
+.item-icone{
+  font-size: 2rem;
+  margin-left: 2rem;
+}
+.item-nome{
+  border: 2px solid black;
+  border-radius: 7px;
+  margin: auto;
+  width: 31rem;
+}
+.item-botao{
+margin: auto;
+
+}
+
 
 header {
   position: absolute;
@@ -176,13 +211,21 @@ button {
   background: var(--color-confirm);
   border: none;
   border-radius: var(--size-radius);
-  font-weight: 900;
+
+  &#adicionar{
+    font-weight: 900;
+
+
+  }
   
   &[type=reset]{
     background: #fdfdfd;
     color: var(--color-confirm);
     border: var(--color-dark) solid;
     font-weight: 200;
+  }
+  &[class="delete"]{
+    width: 100%;
   } 
 }
 
