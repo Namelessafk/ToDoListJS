@@ -1,8 +1,9 @@
-let input = document.getElementById("inputTarefa");
-let btnAdicionar = document.getElementById("adicionar");
-let main = document.getElementById("areaLista")
+let input = document.getElementById("inputTarefa"); //Separa a variavel para o valor do input
+let btnAdd = document.getElementById("adicionar"); //Registra o botão de adicionar.
+let main = document.getElementById("areaLista") //Separa a variavel da area onde sera colocada no html
 
 function addTarefa() {
+    //Pega o Valor Digitado no Input
     let valorInput = input.value;
 
     if((valorInput !== "") && (valorInput !== null) && (valorInput !== undefined)){
@@ -19,15 +20,23 @@ function addTarefa() {
             </div>
         </div>
         `;
-        main.innerHTML += novoItem
+        // Adicionar Item na main
+        main.innerHTML += novoItem;
+
+        //Zerar o Campo de input
+        input.value = "";
+        input.focus();
     }
-    
-    
 }
 
-
-
-
+input.addEventListener("keyup", function(event){
+    
+    if(event.key === "Enter"){
+        event.preventDefault();
+        btnAdd.click();
+        }
+    }
+)
 
 
 
