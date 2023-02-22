@@ -180,6 +180,7 @@ h1, h2, h3 {
   color: currentColor;
   background: transparent;
   border-radius: var(--size-radius);
+  font-weight: bold;
 }
 .input-field:not(:-moz-placeholder-shown) + .input-label {
   transform: translate(0.25rem, -65%) scale(0.8);
@@ -204,6 +205,7 @@ button {
   background: var(--color-confirm);
   border: none;
   border-radius: var(--size-radius);
+  font-family: "Plus Jakarta Sans", sans-serif;
 }
 button#adicionar {
   font-weight: 900;

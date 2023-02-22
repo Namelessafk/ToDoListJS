@@ -27,14 +27,15 @@
     </section>
   </header>
 
+
   <div class="card">
     <h2>Lista de Tarefas</h2>
     <label class="input">
-      <input class="input-field" type="text" placeholder=" " />
+      <input id="inputTarefa" class="input-field" type="text" placeholder=" " />
       <span class="input-label">Digite uma tarefa</span>
     </label>
     <div class="button-group">
-      <button id="adicionar">Adicionar</button>
+      <button onclick="addTarefa()" id="adicionar">Adicionar</button>
       <button type="reset">Limpar as tarefas</button>
     </div>
   </div>
@@ -42,18 +43,20 @@
   
 
 
-<main>
+<main id="areaLista">
+  
   <div class="item">
     <div class="item-icone">
-      <i class="mdi mdi-circle-outline"></i>
+        <i class="mdi mdi-circle-outline"></i>
     </div>
     <div class="item-nome">
-      Teste de Tarefa
+        Teste de Tarefa
     </div>
     <div class="item-botao">
-      <button class="delete"><i class="mdi mdi-delete"></i>Deletar</button>
+        <button class="delete"><i class="mdi mdi-delete"></i>Deletar</button>
     </div>
-  </div>
+</div>
+
 
   <div class="item clicado">
     <div class="item-icone">

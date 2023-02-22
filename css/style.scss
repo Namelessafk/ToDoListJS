@@ -201,6 +201,7 @@ h1, h2, h3 {
     color: currentColor;
     background: transparent;
     border-radius: var(--size-radius);
+    font-weight: bold;
     
     &:focus,
     &:not(:placeholder-shown) {
@@ -223,6 +224,7 @@ button {
   background: var(--color-confirm);
   border: none;
   border-radius: var(--size-radius);
+  font-family: 'Plus Jakarta Sans', sans-serif; ;
 
   &#adicionar{
     font-weight: 900;
