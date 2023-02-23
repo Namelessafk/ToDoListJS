@@ -14,8 +14,8 @@
 
   <header>
     <section class="upper">
-      <h3 id="diabrabo"></h3>
-      <h3 id="mesbrabo" style="margin-left:10px ;"></h3>
+      <h3 id="dia"></h3>
+      <h3 id="mes" style="margin-left:10px ;"></h3>
     </section>
     <section class="lower">
       <div>
@@ -36,40 +36,27 @@
     </label>
     <div class="button-group">
       <button onclick="addTarefa()" id="adicionar">Adicionar</button>
-      <button type="reset">Limpar as tarefas</button>
     </div>
   </div>
 
+
+
+  <div id="triangulo">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" class="center-triangle">
+      <g class="triangle-shadow">
+        <polygon points="220 112.61 282 220 344 327.39 220 327.39 96 327.39 158 220 220 112.61" />
+      </g>
+      <polygon class="triangle" points="200 92.61 262 200 324 307.39 200 307.39 76 307.39 138 200 200 92.61" />
+    </svg>
+  </div>
   
 
 
 <main id="areaLista">
   
-
-
-
-  <div class="item clicado">
-    <div class="item-icone">
-      <i class="mdi mdi-check-circle"></i>
-    </div>
-    <div class="item-nome">
-      Teste de Tarefa
-    </div>
-    <div class="item-botao">
-      <button class="delete"><i class="mdi mdi-delete"></i>Deletar</button>
-    </div>
-  </div>
-  
-
-
-
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" class="center-triangle">
-    <g class="triangle-shadow">
-      <polygon points="220 112.61 282 220 344 327.39 220 327.39 96 327.39 158 220 220 112.61" />
-    </g>
-    <polygon class="triangle" points="200 92.61 262 200 324 307.39 200 307.39 76 307.39 138 200 200 92.61" />
-  </svg>
 </main>
+
+
 
     <script src="js/script.js"></script>
 </body>
