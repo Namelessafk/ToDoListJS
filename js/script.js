@@ -4,14 +4,17 @@ let input = document.getElementById("inputTarefa"); //Separa a variavel para o v
 let btnAdd = document.getElementById("adicionar"); //Registra o botão de adicionar.
 let main = document.getElementById("areaLista") //Separa a variavel da area onde sera colocada no html
 
+
+
+//Função de Adicionar Tarefas
 function addTarefa() {
+    
     //Pega o Valor Digitado no Input
     let valorInput = input.value;
 
     if((valorInput !== "") && (valorInput !== null) && (valorInput !== undefined)){
 
         ++itemcounter;
-
         let novoItem = `
         <div  class="item" id="${itemcounter}">
             <div class="item-icone">
@@ -25,6 +28,9 @@ function addTarefa() {
             </div>
         </div>
         `;
+        
+
+
         // Adicionar Item na main
         main.innerHTML += novoItem;
 
@@ -51,7 +57,6 @@ function finished(id){
         icone.classList.remove('mdi-circle-outline')
         icone.classList.add('mdi-check-circle')
 
-        item.parentNode.appendChild(item);
     }else{
         var icone = document.getElementById('icone_'+ id)
         item.classList.remove('clicado');
@@ -61,7 +66,7 @@ function finished(id){
 
 }
 
-//Evento para que o botão enter seja reconhecido na hora de adicionar uma tarefa
+//Evento para que o botão ENTER seja reconhecido na hora de adicionar uma tarefa
 input.addEventListener("keyup", function(event){
     
     if(event.key === "Enter"){
@@ -70,6 +75,7 @@ input.addEventListener("keyup", function(event){
         }
     }
 )
+
 
 
 
