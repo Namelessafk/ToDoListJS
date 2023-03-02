@@ -5,7 +5,7 @@
 Este Projeto é basicamente um to-do list mas com uma vibe mais aesthetic, não sei exatamente qual seria esse estilo artístico. Mas me deixa bem confortavel ver ele assim.
 Esse projeto também esta registrado no codepen: https://codepen.io/namelessafk/pen/PodpOqJ
 
-![imagem do projeto](readmeImg/Imagem_vanilla.png)
+![imagem do projeto](readmeImg/Imagem_vanilla.PNG)
 
 # Arquivos :skull:
 
@@ -29,7 +29,7 @@ Sinta-se livre para dar alguma ideia ou querer falar qualquer coisa sobre o proj
 This Project is basically a to-do list but with a more aesthetic vibe, I don't know exactly what that artistic style would be. But it makes me very comfortable to see him like this.
 This project is also registered on codepen: https://codepen.io/namelessafk/pen/PodpOqJ
 
-![project image](readmeImg/Imagem_vanilla.png)
+![project image](readmeImg/Imagem_vanilla.PNG)
 
 # Files :skull:
 
