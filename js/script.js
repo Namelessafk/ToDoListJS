@@ -1,11 +1,10 @@
-let itemcounter = 0;
-
 let input = document.getElementById("inputTarefa"); //Separa a variavel para o valor do input
 let btnAdd = document.getElementById("adicionar"); //Registra o botão de adicionar.
 let main = document.getElementById("areaLista") //Separa a variavel da area onde sera colocada no html
 
 
 
+let itemcounter = 0; //Contador que vai servir para armazenar o id da classe "item".
 //Função de Adicionar Tarefas
 function addTarefa() {
     
@@ -46,6 +45,7 @@ function deletar(id){
     tarefa.remove();
 }
 
+// Função para marcar
 function finished(id){
     var item = document.getElementById(id);
     var classe = item.getAttribute('class');
@@ -82,7 +82,7 @@ input.addEventListener("keyup", function(event){
 
 //Data Atualizada Diariamente
 const d = new Date();
-document.getElementById("dia").innerHTML = d.getDate();
+document.getElementById("dia").innerHTML = d.getDate()+" de";
 
 
 const months = [" Janeiro", " Fevereiro", " Março", " Abril", " Maio", " Junho", " Julho", " Agosto", " Setembro", " Outubro", " Novembro", " Dezembro"];
