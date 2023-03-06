@@ -93,6 +93,7 @@ main {
 
 .item-botao {
   margin: auto;
+  display: contents;
 }
 
 header {
@@ -139,9 +140,17 @@ header .lower a {
   margin: 0 0 4px 10px;
 }
 
+#cancel-edit-back {
+  font-size: 2rem;
+}
+
 h1, h2, h3 {
   font-weight: 900;
   margin-bottom: 1rem;
+}
+
+h4 {
+  margin-bottom: 4px;
 }
 
 .card {
@@ -153,6 +162,7 @@ h1, h2, h3 {
   margin: calc(var(--size-bezel) * 3);
   width: 50vw;
   margin-left: 23vw;
+  position: relative;
 }
 
 .l-design-widht {
@@ -190,20 +200,34 @@ h1, h2, h3 {
   font-weight: bold;
 }
 .input-field:not(:-moz-placeholder-shown) + .input-label {
-  transform: translate(0.25rem, -65%) scale(0.8);
+  transform: translate(0.25rem, -66%) scale(0.7);
   color: var(--color-confirm);
 }
 .input-field:not(:-ms-input-placeholder) + .input-label {
-  transform: translate(0.25rem, -65%) scale(0.8);
+  transform: translate(0.25rem, -66%) scale(0.7);
   color: var(--color-confirm);
 }
 .input-field:focus + .input-label, .input-field:not(:placeholder-shown) + .input-label {
-  transform: translate(0.25rem, -65%) scale(0.8);
+  transform: translate(0.25rem, -66%) scale(0.7);
   color: var(--color-confirm);
 }
 
-.button-group {
-  margin-top: calc(var(--size-bezel) * 2.5);
+#form-search {
+  display: flex;
+}
+
+#input-search {
+  padding: 5px;
+}
+
+#span-search {
+  padding: 0;
+  font-size: 14px;
+  margin: 7px;
+}
+
+#erase-button {
+  margin-left: 5px;
 }
 
 button {
@@ -213,19 +237,34 @@ button {
   border: none;
   border-radius: var(--size-radius);
   font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 900;
+  cursor: pointer;
 }
 button#adicionar {
-  font-weight: 900;
-}
-button[class=delete] {
-  width: 100%;
-  height: 47px;
-  font-size: 1em;
-  padding: 0px 16px;
+  height: 32px;
 }
 
 button + button {
   margin-left: calc(var(--size-bezel) * 2);
+}
+
+#editform {
+  margin-left: 38vw;
+  position: absolute;
+}
+
+#toolbar {
+  display: flex;
+  margin-top: 10px;
+  align-items: center;
+}
+
+#search {
+  margin-left: 32px;
+}
+
+#filter {
+  margin-left: 20px;
 }
 
 .icon {
@@ -241,4 +280,14 @@ button + button {
 
 i {
   cursor: pointer;
+}
+
+.mdi {
+  cursor: pointer;
+}
+
+#cancel-edit-back {
+  position: absolute;
+  top: 0;
+  left: 0;
 }/*# sourceMappingURL=style.css.map */

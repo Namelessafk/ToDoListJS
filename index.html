@@ -7,7 +7,9 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@6.9.96/css/materialdesignicons.min.css">
 
-  <title> To Do List </title>
+  <title> 
+    To Do List 
+  </title>
 </head>
 <body>
   <header>
@@ -27,14 +29,59 @@
   </header>
 
   <div class="card"> <!-- Card Principal onde o usuario ira adicionar as tarefas pelo input. -->
-    <h2>Lista de Tarefas</h2>
+    
+      <span id="cancel-edit-back" class="mdi mdi-arrow-left"></span>
+      <h2>
+        Lista de Tarefas
+      </h2>
+ 
     <label class="input">
       <input id="inputTarefa" class="input-field" type="text" placeholder=" " />
-      <span class="input-label">Digite uma tarefa</span>
+      <span class="input-label">
+        Digite uma tarefa
+      </span>
     </label>
-    <div class="button-group">
-      <button onclick="addTarefa()" id="adicionar">Adicionar</button>
-    </div>
+      <!-- Editar -->
+      <form id="editform">
+        <div class="form-control">
+          <input type="text" id="input-edit" placeholder="Edite sua Tarefa">
+          <button type="submit" id="editar">
+            Editar  
+          </button>
+        </div>
+      </form>
+      <!-- Pesquisar -->
+      <div id="toolbar">
+        <button onclick="addTarefa()" id="adicionar">
+          Adicionar
+        </button>
+        <div id="search">
+          <h4>
+            Pesquisar:
+          </h4>
+            <form id="form-search">
+              <label class="input">
+              <input type="text" class="input-field" id="input-search" placeholder=" ">
+              <span class="input-label" id="span-search">
+                Buscar
+              </span>
+              </label>
+              <button id="erase-button">
+                <span class="mdi mdi-trash-can-outline"></span>
+              </button>
+            </form>
+          
+        </div>
+        <div id="filter">
+          <h4>Filtro:</h4>
+          
+          <select id="filter-select">
+            <option value="all">Todos</option>
+            <option value="done">Feitos</option>
+            <option value="current">Em andamento</option>
+          </select>
+        </div>
+      </div>
   </div>
 
 
@@ -56,6 +103,6 @@
 
 
 
-  <script src="js/script.js"></script>
+  <script src="js/script.js" defer></script>
 </body>
 </html>
