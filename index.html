@@ -13,12 +13,17 @@
 </head>
 <body>
   <header>
-    <section class="upper"> <!-- Sessão do site que apresenta o dia e o mês -->
+
+    <!-- Sessão do site que apresenta o dia e o mês -->
+
+    <section class="upper"> 
       <h3 id="dia"></h3>
       <h3 id="mes" style="margin-left:10px ;"></h3>
     </section>
 
-    <section class="lower"> <!-- Sessão do site que apresenta o icone e Link para o Github  -->
+    <!-- Sessão do site que apresenta o icone e Link para o Github  -->
+
+    <section class="lower"> 
       <div>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31.87 31.87">
           <path class="cls-1" d="M15.94,31.87,13,24.57A10.32,10.32,0,0,0,7.3,18.88L0,15.94,7.3,13A10.32,10.32,0,0,0,13,7.3L15.94,0l2.94,7.3A10.32,10.32,0,0,0,24.57,13l7.3,2.95-7.3,2.94a10.32,10.32,0,0,0-5.69,5.69Z" />
@@ -28,7 +33,9 @@
     </section>
   </header>
 
-  <div class="card"> <!-- Card Principal onde o usuario ira adicionar as tarefas pelo input. -->
+  <!-- Card Principal onde o usuario ira adicionar as tarefas pelo input. -->
+
+  <div class="card"> 
     
       <span id="cancel-edit-back" class="mdi mdi-arrow-left"></span>
       <h2>
@@ -41,7 +48,9 @@
         Digite uma tarefa
       </span>
     </label>
+
       <!-- Editar -->
+
       <form id="editform">
         <div class="form-control">
           <input type="text" id="input-edit" placeholder="Edite sua Tarefa">
@@ -50,7 +59,9 @@
           </button>
         </div>
       </form>
+
       <!-- Pesquisar -->
+
       <div id="toolbar">
         <button onclick="addTarefa()" id="adicionar">
           Adicionar
@@ -75,7 +86,7 @@
         <div id="filter">
           <h4>Filtro:</h4>
           
-          <select id="filter-select">
+          <select id="filter-select" class="input-field">
             <option value="all">Todos</option>
             <option value="done">Feitos</option>
             <option value="current">Em andamento</option>
@@ -84,9 +95,9 @@
       </div>
   </div>
 
+<!-- E literalemente um belo triangulo... -->
 
-
-  <div id="triangulo"> <!-- E literalemente um belo triangulo... -->
+  <div id="triangulo"> 
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" class="center-triangle">
       <g class="triangle-shadow">
         <polygon points="220 112.61 282 220 344 327.39 220 327.39 96 327.39 158 220 220 112.61" />
@@ -96,13 +107,13 @@
   </div>
   
 
+<!-- Area onde sera armazenado as tarefas via JavaScript-->
 
-  <main id="areaLista"> <!-- Area onde sera armazenado as tarefas via JavaScript-->
-  
+  <main id="areaLista">
   </main>
 
 
 
-  <script src="js/script.js" defer></script>
+<script src="js/script.js" defer></script>
 </body>
 </html>

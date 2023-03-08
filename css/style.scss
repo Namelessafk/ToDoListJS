@@ -1,4 +1,5 @@
 /* Raiz do Projeto que sera Reusado no resto do css */
+
 :root {
   --color-light: white;
   --color-dark: #212121;
@@ -31,88 +32,7 @@ body{
   overflow: hidden;
 }
 
-main {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  flex-direction: row;
-  flex-wrap: wrap;
-  max-height: 72vh;
-  overflow-y: auto;
-  justify-content: space-evenly;
-}
-
-
-#triangulo{
-  position: absolute;
-  z-index: -5;
-  margin-left: 38vw;
-
-.center-triangle {
-  width: 300px;
-  position: absolute;
-  
-  
-
-  .triangle {
-    fill: #fff;
-    stroke: #000000;
-    stroke-width: 1;
-  }
-
-  .triangle-shadow {
-    mix-blend-mode: multiply;
-    opacity: 0.75;
-    transition: 200ms;
-  }
-
-}
-}
-
-.item{
-  display: flex;
-  background: #ffffff;
-  background-color: transparent;
-  backdrop-filter: blur(3px);
-  padding: 2rem 0rem;
-  border-radius: var(--size-radius);
-  border: 3px solid var(--color-dark);
-  box-shadow: .5rem .5rem 0 #000000;
-  margin:calc(var(--size-bezel) * 3);
-  width: 27vw;
-  
-
-}
-
-
-.item.clicado{
-  background: rgb(141 255 176 / 62%);
-  backdrop-filter: blur(2px);
-  }
-
-  .item.clicado .item-nome{
-    text-decoration: line-through;
-  }
-
-  .item-icone{
-    font-size: 2rem;
-    margin-left: 2rem;
-  }
-  .item-nome{
-    margin: auto;
-    width: 31rem;
-  }
-  .item-botao{
-    margin: auto;
-    display: contents;
-   
-
-  }
-
-
-
-
-
+/* Cabeçalho Lateral */
 
 header {
   position: absolute;
@@ -163,9 +83,87 @@ header {
     
   }
 }
-#cancel-edit-back{
-  font-size: 2rem;
+
+/* Main */
+
+main {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-height: 72vh;
+  overflow-y: auto;
+  justify-content: space-evenly;
 }
+
+/* Triangulo */
+
+#triangulo{
+  position: absolute;
+  z-index: -5;
+  margin-left: 38vw;
+
+  .center-triangle {
+    width: 300px;
+    position: absolute;
+
+    .triangle {
+      fill: #fff;
+      stroke: #000000;
+      stroke-width: 1;
+    }
+
+    .triangle-shadow {
+      mix-blend-mode: multiply;
+      opacity: 0.75;
+      transition: 200ms;
+    }
+
+  }
+}
+
+/* Items da To do List */
+
+.item{
+  display: flex;
+  background: #ffffff;
+  background-color: transparent;
+  backdrop-filter: blur(3px);
+  padding: 2rem 0rem;
+  border-radius: var(--size-radius);
+  border: 3px solid var(--color-dark);
+  box-shadow: .5rem .5rem 0 #000000;
+  margin:calc(var(--size-bezel) * 3);
+  width: 27vw;
+  
+
+}
+
+
+.item.clicado{
+  background: rgb(141 255 176 / 62%);
+  backdrop-filter: blur(2px);
+  }
+
+  .item.clicado .item-nome{
+    text-decoration: line-through;
+  }
+
+  .item-icone{
+    font-size: 2rem;
+    margin-left: 2rem;
+  }
+  .item-nome{
+    margin: auto;
+    width: 31rem;
+  }
+  .item-botao{
+    margin: auto;
+    display: contents;
+   
+
+  }
 
 h1, h2, h3 {
   font-weight: 900;
@@ -176,6 +174,7 @@ h4{
   margin-bottom:4px ;
 }
 
+/* Card do input principal */
 
 .card {
   background: var(--color-light);
@@ -249,7 +248,12 @@ h4{
 }
 
 #erase-button{
-  margin-left: 5px
+  margin-left: 5px;
+  height: 31px;
+}
+
+#cancel-edit-back{
+  font-size: 2rem;
 }
 
 button {
@@ -278,7 +282,7 @@ button + button {
 
 #toolbar{
   display: flex;
-  margin-top: 10px;
+  margin-top: 0.1rem;
   align-items: center;
 }
 
@@ -289,7 +293,10 @@ button + button {
 
 #filter{
   margin-left: 20px;
-  
+}
+
+#filter-select{
+  padding: 0;
 }
 
 
@@ -310,6 +317,7 @@ i{
 
 .mdi{
   cursor: pointer;
+  display: flex;
 }
 
 #cancel-edit-back{

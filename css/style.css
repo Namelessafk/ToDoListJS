@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* Raiz do Projeto que sera Reusado no resto do css */
 :root {
   --color-light: white;
@@ -26,76 +27,7 @@ body {
   overflow: hidden;
 }
 
-main {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  flex-direction: row;
-  flex-wrap: wrap;
-  max-height: 72vh;
-  overflow-y: auto;
-  justify-content: space-evenly;
-}
-
-#triangulo {
-  position: absolute;
-  z-index: -5;
-  margin-left: 38vw;
-}
-#triangulo .center-triangle {
-  width: 300px;
-  position: absolute;
-}
-#triangulo .center-triangle .triangle {
-  fill: #fff;
-  stroke: #000000;
-  stroke-width: 1;
-}
-#triangulo .center-triangle .triangle-shadow {
-  mix-blend-mode: multiply;
-  opacity: 0.75;
-  transition: 200ms;
-}
-
-.item {
-  display: flex;
-  background: #ffffff;
-  background-color: transparent;
-  -webkit-backdrop-filter: blur(3px);
-          backdrop-filter: blur(3px);
-  padding: 2rem 0rem;
-  border-radius: var(--size-radius);
-  border: 3px solid var(--color-dark);
-  box-shadow: 0.5rem 0.5rem 0 #000000;
-  margin: calc(var(--size-bezel) * 3);
-  width: 27vw;
-}
-
-.item.clicado {
-  background: rgba(141, 255, 176, 0.62);
-  -webkit-backdrop-filter: blur(2px);
-          backdrop-filter: blur(2px);
-}
-
-.item.clicado .item-nome {
-  text-decoration: line-through;
-}
-
-.item-icone {
-  font-size: 2rem;
-  margin-left: 2rem;
-}
-
-.item-nome {
-  margin: auto;
-  width: 31rem;
-}
-
-.item-botao {
-  margin: auto;
-  display: contents;
-}
-
+/* Cabeçalho Lateral */
 header {
   position: absolute;
   display: flex;
@@ -140,8 +72,77 @@ header .lower a {
   margin: 0 0 4px 10px;
 }
 
-#cancel-edit-back {
+/* Main */
+main {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-height: 72vh;
+  overflow-y: auto;
+  justify-content: space-evenly;
+}
+
+/* Triangulo */
+#triangulo {
+  position: absolute;
+  z-index: -5;
+  margin-left: 38vw;
+}
+#triangulo .center-triangle {
+  width: 300px;
+  position: absolute;
+}
+#triangulo .center-triangle .triangle {
+  fill: #fff;
+  stroke: #000000;
+  stroke-width: 1;
+}
+#triangulo .center-triangle .triangle-shadow {
+  mix-blend-mode: multiply;
+  opacity: 0.75;
+  transition: 200ms;
+}
+
+/* Items da To do List */
+.item {
+  display: flex;
+  background: #ffffff;
+  background-color: transparent;
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+  padding: 2rem 0rem;
+  border-radius: var(--size-radius);
+  border: 3px solid var(--color-dark);
+  box-shadow: 0.5rem 0.5rem 0 #000000;
+  margin: calc(var(--size-bezel) * 3);
+  width: 27vw;
+}
+
+.item.clicado {
+  background: rgba(141, 255, 176, 0.62);
+  -webkit-backdrop-filter: blur(2px);
+          backdrop-filter: blur(2px);
+}
+
+.item.clicado .item-nome {
+  text-decoration: line-through;
+}
+
+.item-icone {
   font-size: 2rem;
+  margin-left: 2rem;
+}
+
+.item-nome {
+  margin: auto;
+  width: 31rem;
+}
+
+.item-botao {
+  margin: auto;
+  display: contents;
 }
 
 h1, h2, h3 {
@@ -153,6 +154,7 @@ h4 {
   margin-bottom: 4px;
 }
 
+/* Card do input principal */
 .card {
   background: var(--color-light);
   padding: calc(4 * var(--size-bezel));
@@ -228,6 +230,11 @@ h4 {
 
 #erase-button {
   margin-left: 5px;
+  height: 31px;
+}
+
+#cancel-edit-back {
+  font-size: 2rem;
 }
 
 button {
@@ -255,7 +262,7 @@ button + button {
 
 #toolbar {
   display: flex;
-  margin-top: 10px;
+  margin-top: 0.1rem;
   align-items: center;
 }
 
@@ -265,6 +272,10 @@ button + button {
 
 #filter {
   margin-left: 20px;
+}
+
+#filter-select {
+  padding: 0;
 }
 
 .icon {
@@ -284,6 +295,7 @@ i {
 
 .mdi {
   cursor: pointer;
+  display: flex;
 }
 
 #cancel-edit-back {
