@@ -256,22 +256,23 @@ button + button {
 }
 
 #editform {
-  margin-left: 38vw;
+  margin-left: 14rem;
   position: absolute;
 }
 
 #toolbar {
   display: flex;
-  margin-top: 0.1rem;
   align-items: center;
 }
 
 #search {
-  margin-left: 32px;
+  margin-left: 8rem;
+  margin-top: 1.5rem;
 }
 
 #filter {
-  margin-left: 20px;
+  margin-left: 5rem;
+  margin-top: 1.5rem;
 }
 
 #filter-select {

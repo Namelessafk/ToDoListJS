@@ -1,10 +1,12 @@
 let input = document.getElementById("inputTarefa"); //Separa a variavel para o valor do input
 let btnAdd = document.getElementById("adicionar"); //Registra o botão de adicionar.
-let main = document.getElementById("areaLista") //Separa a variavel da area onde sera colocada no html
-
+let main = document.getElementById("areaLista"); //Separa a variavel da area onde sera colocada no html
+let mainInput = document.querySelector("#main-input");
+let editBack = document.querySelector("#cancel-edit-back");
 
 
 let itemcounter = 0; //Contador que vai servir para armazenar o id da classe "item".
+
 //Função de Adicionar Tarefas
 function addTarefa() {
     
@@ -23,7 +25,7 @@ function addTarefa() {
                 ${valorInput}
             </div>
             <div class="item-botao">
-                <button id="edit">
+                <button class="edit">
                 <span class="mdi mdi-pencil-outline"></span>
                 </button>
                 <button onclick="deletar(${itemcounter})" class="delete">
@@ -51,7 +53,9 @@ function deletar(id){
     tarefa.remove();
 }
 
-// Função para marcar
+// Função para marcar como Concluido
+
+
 function finished(id){
     var item = document.getElementById(id);
     var classe = item.getAttribute('class');
@@ -71,6 +75,25 @@ function finished(id){
     }
 
 }
+
+//Evento do botão editar
+function switchCard(){
+    mainInput.classList.toggle('hidden');
+    
+
+}
+
+
+
+document.addEventListener("click",(e)=>{
+    const targetEl = e.target;
+
+    if(targetEl.classList.contains("edit") || (targetEl.classList.contains("mdi-pencil-outline"))){
+        console.log("e u djabo2");
+        switchCard();
+    }
+});
+
 
 //Evento para que o botão ENTER seja reconhecido na hora de adicionar uma tarefa
 input.addEventListener("keyup", function(event){
