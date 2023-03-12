@@ -1,11 +1,18 @@
 let input = document.getElementById("inputTarefa"); //Separa a variavel para o valor do input
 let btnAdd = document.getElementById("adicionar"); //Registra o botão de adicionar.
 let main = document.getElementById("areaLista"); //Separa a variavel da area onde sera colocada no html
+
 let mainInput = document.querySelector("#main-input");
+
 let editBack = document.querySelector("#cancel-edit-back");
+let editForm = document.querySelector('#editform');
+let toolBar = document.querySelector("#toolbar")
+
 
 
 let itemcounter = 0; //Contador que vai servir para armazenar o id da classe "item".
+
+
 
 //Função de Adicionar Tarefas
 function addTarefa() {
@@ -46,7 +53,7 @@ function addTarefa() {
         input.focus();
 
     }
-}
+};
 // Função de deletar a tarefa
 function deletar(id){
     var tarefa = document.getElementById(id);
@@ -79,8 +86,9 @@ function finished(id){
 //Evento do botão editar
 function switchCard(){
     mainInput.classList.toggle('hidden');
-    
-
+    editForm.classList.toggle('hidden');
+    editBack.classList.toggle('hidden');
+    toolBar.classList.toggle('hidden');
 }
 
 

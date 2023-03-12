@@ -36,8 +36,8 @@
   <!-- Card Principal onde o usuario ira adicionar as tarefas pelo input. -->
 
   <div class="card"> 
+    <i id="cancel-edit-back" class="hidden mdi mdi-arrow-left"></i>
     <div id="main-input">
-      <span id="cancel-edit-back" class="mdi mdi-arrow-left"></span>
       <h2>
         Lista de Tarefas
       </h2>
@@ -51,7 +51,7 @@
   </div>
       <!-- Editar -->
 
-      <form id="editform">
+      <form id="editform" class="hidden">
         <div class="form-control">
           <input type="text" id="input-edit" placeholder="Edite sua Tarefa">
           <button type="submit" id="editar">
