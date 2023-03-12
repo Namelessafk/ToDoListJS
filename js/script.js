@@ -1,12 +1,13 @@
 let input = document.getElementById("inputTarefa"); //Separa a variavel para o valor do input
 let btnAdd = document.getElementById("adicionar"); //Registra o botão de adicionar.
-let main = document.getElementById("areaLista"); //Separa a variavel da area onde sera colocada no html
+let main = document.querySelector("#areaLista"); //Separa a variavel da area onde sera colocada no html
 
 let mainInput = document.querySelector("#main-input");
 
 let editBack = document.querySelector("#cancel-edit-back");
 let editForm = document.querySelector('#editform');
 let toolBar = document.querySelector("#toolbar")
+let editTitle = document.querySelector("#edit-title")
 
 
 
@@ -89,18 +90,26 @@ function switchCard(){
     editForm.classList.toggle('hidden');
     editBack.classList.toggle('hidden');
     toolBar.classList.toggle('hidden');
+    editTitle.classList.toggle('hidden');
+    main.classList.toggle('hidden');
 }
-
-
 
 document.addEventListener("click",(e)=>{
     const targetEl = e.target;
 
     if(targetEl.classList.contains("edit") || (targetEl.classList.contains("mdi-pencil-outline"))){
-        console.log("e u djabo2");
+        console.log(main);
         switchCard();
     }
 });
+
+//Evento no botão da seta para "voltar"
+
+editBack.addEventListener("click", (e) => {
+    e.preventDefault();
+    switchCard();
+
+})
 
 
 //Evento para que o botão ENTER seja reconhecido na hora de adicionar uma tarefa

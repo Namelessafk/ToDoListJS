@@ -294,9 +294,13 @@ button + button {
 }
 
 #editform{
-  margin-left: 14rem;
-  position: absolute;
+  width: 24rem;
 }
+
+#input-edit{
+  margin-bottom: 1rem;
+}
+
 
 #toolbar{
   display: flex;

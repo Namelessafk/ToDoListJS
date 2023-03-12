@@ -36,12 +36,21 @@
   <!-- Card Principal onde o usuario ira adicionar as tarefas pelo input. -->
 
   <div class="card"> 
+
+    <!-- Exibido Apenas na tela de editar -->
+
     <i id="cancel-edit-back" class="hidden mdi mdi-arrow-left"></i>
+    <h2 id="edit-title" class="hidden">
+      Editor de tarefas
+    </h2>
+
+    <!-- Exibido na Tela normal -->
+
     <div id="main-input">
       <h2>
         Lista de Tarefas
       </h2>
- 
+      
     <label class="input">
       <input id="inputTarefa" class="input-field" type="text" placeholder=" " />
       <span class="input-label">
@@ -52,12 +61,15 @@
       <!-- Editar -->
 
       <form id="editform" class="hidden">
-        <div class="form-control">
-          <input type="text" id="input-edit" placeholder="Edite sua Tarefa">
-          <button type="submit" id="editar">
-            Editar  
-          </button>
-        </div>
+        <label class="input">
+          <input type="text" id="input-edit" class="input-field" type="text" placeholder=" ">
+          <span class="input-label">
+            Edite sua tarefa
+          </span>
+        </label>
+        <button type="submit" id="editar">
+          Editar  
+        </button>
       </form>
 
       <!-- Pesquisar -->
@@ -71,9 +83,7 @@
             Pesquisar:
           </h4>
             <form id="form-search">
-              <label class="input">
               <input type="text" class="input-field" id="input-search" placeholder=" ">
-              </label>
               <button id="erase-button">
                 <span class="mdi mdi-trash-can-outline"></span>
               </button>
