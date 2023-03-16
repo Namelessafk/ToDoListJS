@@ -26,12 +26,6 @@
   padding: 0;
 }
 
-.icon {
-  display: inline-block;
-  width: 1em; height: 1em;
-  margin-right: .5em;
-
-}
 
 .hidden {
   display: none !important;
@@ -291,6 +285,7 @@ button {
 
 button + button {
   margin-left: calc(var(--size-bezel) * 2);
+  margin-right: calc(var(--size-bezel) * 2);
 }
 
 #editform{

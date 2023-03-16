@@ -38,7 +38,6 @@ function addTarefa() {
                 </button>
                 <button onclick="deletar(${itemcounter})" class="delete">
                 <i class="mdi mdi-delete"></i>
-                Deletar
                 </button>
             </div>
         </div>
