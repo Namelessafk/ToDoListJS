@@ -4,10 +4,15 @@ let main = document.querySelector("#areaLista"); //Separa a variavel da area ond
 
 let mainInput = document.querySelector("#main-input");
 
+// Variaveis usadas na parte de Editar
 let editBack = document.querySelector("#cancel-edit-back");
 let editForm = document.querySelector('#editform');
-let toolBar = document.querySelector("#toolbar")
 let editTitle = document.querySelector("#edit-title")
+let toolBar = document.querySelector("#toolbar")
+
+let oldInputValue;
+
+let valorInput;
 
 
 
@@ -19,13 +24,13 @@ let itemcounter = 0; //Contador que vai servir para armazenar o id da classe "it
 function addTarefa() {
     
     //Pega o Valor Digitado no Input
-    let valorInput = input.value;
+    valorInput = input.value;
 
     if((valorInput !== "") && (valorInput !== null) && (valorInput !== undefined)){
 
         ++itemcounter;
         let novoItem = `
-        <div  class="item" id="${itemcounter}">
+        <div class="item" id="${itemcounter}">
             <div class="item-icone">
                 <i onclick="finished(${itemcounter})" id="icone_${itemcounter}" class="mdi mdi-circle-outline"></i>
             </div>
@@ -33,7 +38,7 @@ function addTarefa() {
                 ${valorInput}
             </div>
             <div class="item-botao">
-                <button class="edit">
+                <button onclick="editar(${itemcounter})" class="edit">
                 <span class="mdi mdi-pencil-outline"></span>
                 </button>
                 <button onclick="deletar(${itemcounter})" class="delete">
@@ -42,7 +47,6 @@ function addTarefa() {
             </div>
         </div>
         `;
-        
 
 
         // Adicionar Item na main
@@ -54,29 +58,29 @@ function addTarefa() {
 
     }
 };
+
 // Função de deletar a tarefa
 function deletar(id){
-    var tarefa = document.getElementById(id);
-    tarefa.remove();
+    var item = document.getElementById(id);
+    item.remove();
 }
-
 // Função para marcar como Concluido
 
 
 function finished(id){
     var item = document.getElementById(id);
     var classe = item.getAttribute('class');
+    var icone = document.getElementById('icone_'+ id)
 
     if(classe=="item"){
-        item.classList.add('clicado');
+        item.classList.toggle('concluido');
 
-        var icone = document.getElementById('icone_'+ id)
         icone.classList.remove('mdi-circle-outline')
         icone.classList.add('mdi-check-circle')
 
     }else{
-        var icone = document.getElementById('icone_'+ id)
-        item.classList.remove('clicado');
+        item.classList.toggle('concluido');
+
         icone.classList.remove('mdi-check-circle');
         icone.classList.add('mdi-circle-outline');
     }
@@ -92,15 +96,29 @@ function switchCard(){
     editTitle.classList.toggle('hidden');
     main.classList.toggle('hidden');
 }
+// Botão de Editar a tarefa
+function editar(id){
 
-document.addEventListener("click",(e)=>{
-    const targetEl = e.target;
+    var item = document.getElementById(id); 
 
-    if(targetEl.classList.contains("edit") || (targetEl.classList.contains("mdi-pencil-outline"))){
-        console.log(main);
-        switchCard();
+    let item_input = item.querySelector(".item-nome").textContent.trim();
+
+    console.log(item_input);
+
+    console.log(item);
+
+    
+
+    
+    let edit = document.querySelector(".edit")
+
+    if(edit.classList.contains("edit") || (item.classList.contains("mdi-pencil-outline"))){
+        switchCard();    
+
+        
     }
-});
+
+}
 
 //Evento no botão da seta para "voltar"
 

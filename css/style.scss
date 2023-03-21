@@ -48,6 +48,7 @@ body{
 
 /* Cabeçalho Lateral */
 
+
 header {
   position: absolute;
   display: flex;
@@ -155,12 +156,12 @@ main {
 }
 
 
-.item.clicado{
+.item.concluido{
   background: rgb(141 255 176 / 62%);
   backdrop-filter: blur(2px);
   }
 
-  .item.clicado .item-nome{
+  .item.concluido .item-nome{
     text-decoration: line-through;
   }
 
@@ -175,7 +176,6 @@ main {
   .item-botao{
     margin: auto;
     display: contents;
-   
 
   }
 

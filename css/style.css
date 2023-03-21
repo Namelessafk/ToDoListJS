@@ -133,13 +133,13 @@ main {
   width: 27vw;
 }
 
-.item.clicado {
+.item.concluido {
   background: rgba(141, 255, 176, 0.62);
   -webkit-backdrop-filter: blur(2px);
           backdrop-filter: blur(2px);
 }
 
-.item.clicado .item-nome {
+.item.concluido .item-nome {
   text-decoration: line-through;
 }
 
