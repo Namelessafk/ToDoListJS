@@ -4,21 +4,36 @@ let main = document.querySelector("#areaLista"); //Separa a variavel da area ond
 
 let mainInput = document.querySelector("#main-input");
 
+let toolBar = document.querySelector("#toolbar"); // Barra de ferramentas embaixo do input
+
 // Variaveis usadas na parte de Editar
-let editBack = document.querySelector("#cancel-edit-back");
-let editForm = document.querySelector('#editform');
-let editTitle = document.querySelector("#edit-title")
-let toolBar = document.querySelector("#toolbar")
+let editBack = document.querySelector("#cancel-edit-back"); // Seta de voltar da tela de edição
+let editForm = document.querySelector('#editform'); // "Formulario" de edição
+let editTitle = document.querySelector("#edit-title"); // Titulo do Formulario de edição
+var input_edit = document.querySelector("#input-edit"); // Valor que esta armazenado no input da tela de editar
 
-let oldInputValue;
+let oldInputValue; // Armazenar antigo valor que será editado.
 
-let valorInput;
+function uptadeInput(text){
 
+    let item = document.querySelector(".item")
 
+    let items = document.querySelectorAll(".item");
+
+    items.forEach((item) => {
+
+    let item_input = item.querySelector(".item-nome");
+
+        if(item_input.textContent.trim() === oldInputValue){
+            item_input.textContent = text;
+        }
+
+    })
+};
 
 let itemcounter = 0; //Contador que vai servir para armazenar o id da classe "item".
 
-
+// INICIO - Evento Adicionar Tarefas
 
 //Função de Adicionar Tarefas
 function addTarefa() {
@@ -26,7 +41,7 @@ function addTarefa() {
     //Pega o Valor Digitado no Input
     valorInput = input.value;
 
-    if((valorInput !== "") && (valorInput !== null) && (valorInput !== undefined)){
+    if((valorInput !== "") && (valorInput !== null) && (valorInput !== undefined)){ //Verificão do valor input para caso NÃO seja vazio, nulo ou indefinido
 
         ++itemcounter;
         let novoItem = `
@@ -56,16 +71,24 @@ function addTarefa() {
         input.value = "";
         input.focus();
 
+        
+
+        
+
     }
 };
+
+// FIM - Evento Adicionar Tarefas
 
 // Função de deletar a tarefa
 function deletar(id){
     var item = document.getElementById(id);
     item.remove();
 }
-// Função para marcar como Concluido
 
+// INICIO - Evento para finalizar tarefa
+
+// Função para marcar como Concluido
 
 function finished(id){
     var item = document.getElementById(id);
@@ -87,7 +110,11 @@ function finished(id){
 
 }
 
-//Evento do botão editar
+// FIM - Evento para finalizar tarefa
+
+// INICIO - Evento de Editar
+
+// Função para o botão editar 
 function switchCard(){
     mainInput.classList.toggle('hidden');
     editForm.classList.toggle('hidden');
@@ -99,21 +126,18 @@ function switchCard(){
 // Botão de Editar a tarefa
 function editar(id){
 
-    var item = document.getElementById(id); 
-
-    let item_input = item.querySelector(".item-nome").textContent.trim();
-
-    console.log(item_input);
-
-    console.log(item);
-
     
+    var item = document.getElementById(id); // Pega a div inteira do separado pelo id do item por ser unico.
 
+    let item_input = item.querySelector(".item-nome").textContent.trim(); //pega o valor da div com classe item-nome de dentro da div ITEM
     
-    let edit = document.querySelector(".edit")
+    let edit = document.querySelector(".edit"); // Classe do botão de editar na tarefa
 
     if(edit.classList.contains("edit") || (item.classList.contains("mdi-pencil-outline"))){
-        switchCard();    
+        switchCard();
+        
+        input_edit.value = item_input;
+        oldInputValue = item_input;
 
         
     }
@@ -125,9 +149,25 @@ function editar(id){
 editBack.addEventListener("click", (e) => {
     e.preventDefault();
     switchCard();
+    
 
 })
 
+editForm.addEventListener("submit", (e)=>{
+    e.preventDefault();
+
+    const editInputValue = input_edit.value;
+
+    if(editInputValue){
+        // Atualizar
+        uptadeInput(editInputValue);
+    }
+
+    switchCard();
+        
+})
+
+// FIM - Evento Editar
 
 //Evento para que o botão ENTER seja reconhecido na hora de adicionar uma tarefa
 input.addEventListener("keyup", function(event){
@@ -141,7 +181,7 @@ input.addEventListener("keyup", function(event){
 
 
 
-
+// INICIO - Evento da marcação de datas
 
 //Data Atualizada Diariamente
 const d = new Date();
@@ -154,3 +194,5 @@ const m = new Date();
 let month = months[m.getMonth()];
 
 document.getElementById("mes").innerHTML = month;
+
+// FIM - Evento da marcação de datas
