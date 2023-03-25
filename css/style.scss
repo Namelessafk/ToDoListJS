@@ -73,9 +73,8 @@ header {
       content: '';
       position: absolute;
       top: 50%;
-      width: 120px;
+      width: 8rem;
       height: 1px;
-      margin-left: 0rem;
       background: #1a1a1a;
     }
   }
@@ -110,6 +109,7 @@ main {
   max-height: 68vh;
   overflow-y: auto;
   justify-content: space-evenly;
+  position: absolute;
 }
 
 /* Triangulo */
