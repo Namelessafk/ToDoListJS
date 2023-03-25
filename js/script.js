@@ -183,6 +183,37 @@ input.addEventListener("keyup", function(event){
 )
 
 
+// INICIO - Evento pesquisar pela tarefa
+
+const formSearch = document.querySelector("#form-search")
+
+// adicione um evento de escuta para o evento 'submit' do formulário
+formSearch.addEventListener('submit', (event) => {
+    // previna o comportamento padrão do evento
+    event.preventDefault();
+    // obtenha o valor da caixa de busca
+    const inputSearch = document.querySelector('#input-search').value.trim();
+    // faça a busca usando a função 'buscar'
+    const resultadoBusca = buscar(inputSearch);
+    // faça algo com o resultado da busca (exemplo: exiba-o em um alerta)
+    console.log(resultadoBusca);
+});
+
+function buscar(id) {
+
+    let items =  Array.from(document.querySelectorAll(".item"));
+
+    let inputSearch = document.querySelector("#input-search").value.trim();
+    
+    return items.filter((item) =>{
+        let itemName = item.querySelector(".item-nome").textContent.trim();
+        return itemName === inputSearch;
+    });
+}
+
+
+
+// Fim - Evento pesquisar pela tarefa
 
 // INICIO - Evento da marcação de datas
 
