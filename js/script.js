@@ -83,7 +83,10 @@ function addTarefa() {
 // Função de deletar a tarefa
 function deletar(id){
     var item = document.getElementById(id);
-    item.remove();
+    item.style.opacity = 0;
+    setTimeout(function() {
+        item.remove(); // remove o elemento após 500ms (tempo da transição)
+      }, 500);
 }
 
 // INICIO - Evento para finalizar tarefa

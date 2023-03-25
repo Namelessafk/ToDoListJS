@@ -131,10 +131,12 @@ main {
   box-shadow: 0.5rem 0.5rem 0 #000000;
   margin: calc(var(--size-bezel) * 3);
   width: 27vw;
+  transition: background-color 0.5s ease;
+  transition: opacity 0.5s ease;
 }
 
 .item.concluido {
-  background: rgba(141, 255, 176, 0.62);
+  background-color: rgba(141, 255, 176, 0.62);
   -webkit-backdrop-filter: blur(2px);
           backdrop-filter: blur(2px);
 }
