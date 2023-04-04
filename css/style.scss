@@ -103,7 +103,7 @@ header {
 main {
   display: flex;
   align-items: center;
-  width: 100%;
+  width: 101%;
   flex-direction: row;
   flex-wrap: wrap;
   max-height: 68vh;
@@ -150,7 +150,7 @@ main {
   border: 3px solid var(--color-dark);
   box-shadow: .5rem .5rem 0 #000000;
   margin:calc(var(--size-bezel) * 3);
-  width: 27vw;
+  width: 21vw;
   transition: background-color 0.5s ease;
   transition: opacity 0.5s ease;
   

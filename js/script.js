@@ -14,22 +14,6 @@ var input_edit = document.querySelector("#input-edit"); // Valor que esta armaze
 
 let oldInputValue; // Armazenar antigo valor que será editado.
 
-function uptadeInput(text){
-
-    let item = document.querySelector(".item")
-
-    let items = document.querySelectorAll(".item");
-
-    items.forEach((item) => {
-
-    let item_input = item.querySelector(".item-nome");
-
-        if(item_input.textContent.trim() === oldInputValue){
-            item_input.textContent = text;
-        }
-
-    })
-};
 
 let itemcounter = 0; //Contador que vai servir para armazenar o id da classe "item".
 
@@ -62,21 +46,16 @@ function addTarefa() {
             </div>
         </div>
         `;
-
-
         // Adicionar Item na main
         main.innerHTML += novoItem;
 
         //Zerar o Campo de input
         input.value = "";
         input.focus();
-
         
-
-        
-
     }
 };
+
 
 // FIM - Evento Adicionar Tarefas
 
@@ -97,6 +76,7 @@ function finished(id){
     var item = document.getElementById(id);
     var classe = item.getAttribute('class');
     var icone = document.getElementById('icone_'+ id)
+    console.log(items)
 
     if(classe=="item"){
         item.classList.toggle('concluido');
@@ -127,20 +107,39 @@ function switchCard(){
     main.classList.toggle('hidden');
 }
 // Botão de Editar a tarefa
+
+
+function uptadeInput(text){
+
+    let item = document.querySelector(".item")
+
+    let items = document.querySelectorAll(".item");
+
+    items.forEach((item) => {
+
+    let item_name = item.querySelector(".item-nome");
+
+        if(item_name.textContent.trim() === oldInputValue){
+            item_name.textContent = text;
+        }
+
+    })
+};
+
 function editar(id){
 
     
     var item = document.getElementById(id); // Pega a div inteira do separado pelo id do item por ser unico.
 
-    let item_input = item.querySelector(".item-nome").textContent.trim(); //pega o valor da div com classe item-nome de dentro da div ITEM
+    let item_name = item.querySelector(".item-nome").textContent.trim(); //pega o valor da div com classe item-nome de dentro da div ITEM
     
     let edit = document.querySelector(".edit"); // Classe do botão de editar na tarefa
 
     if(edit.classList.contains("edit") || (item.classList.contains("mdi-pencil-outline"))){
         switchCard();
         
-        input_edit.value = item_input;
-        oldInputValue = item_input;
+        input_edit.value = item_name;
+        oldInputValue = item_name;
 
         
     }
@@ -185,30 +184,29 @@ input.addEventListener("keyup", function(event){
 
 // INICIO - Evento pesquisar pela tarefa
 
-const formSearch = document.querySelector("#form-search")
 
-// adicione um evento de escuta para o evento 'submit' do formulário
-formSearch.addEventListener('submit', (event) => {
-    // previna o comportamento padrão do evento
-    event.preventDefault();
-    // obtenha o valor da caixa de busca
-    const inputSearch = document.querySelector('#input-search').value.trim();
-    // faça a busca usando a função 'buscar'
-    const resultadoBusca = buscar(inputSearch);
-    // faça algo com o resultado da busca (exemplo: exiba-o em um alerta)
-    console.log(resultadoBusca);
-});
+function search(){
 
-function buscar(id) {
+    let item = document.querySelector(".item");
 
-    let items =  Array.from(document.querySelectorAll(".item"));
+    let items = document.querySelectorAll(".item");
 
-    let inputSearch = document.querySelector("#input-search").value.trim();
-    
-    return items.filter((item) =>{
-        let itemName = item.querySelector(".item-nome").textContent.trim();
-        return itemName === inputSearch;
-    });
+    let inputSearch = document.querySelector("#input-search");
+
+    inputSearch.addEventListener('input',function(e){
+        const searchStr = e.target.value.toLowerCase();
+        console.log(items);
+        //console.log(e.target.value);
+
+        items.forEach(item =>{
+            let item_name = item.querySelector(".item-nome").textContent.trim();
+            if(item_name.toLowerCase().indexOf(searchStr) > -1 ){
+                item.style.display = "";
+            } else {
+                item.style.display ="none";
+            }
+        });
+    })
 }
 
 
