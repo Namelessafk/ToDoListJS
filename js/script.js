@@ -8,12 +8,11 @@ let toolBar = document.querySelector("#toolbar"); // Barra de ferramentas embaix
 
 // Variaveis usadas na parte de Editar
 let editBack = document.querySelector("#cancel-edit-back"); // Seta de voltar da tela de edição
-let editForm = document.querySelector('#editform'); // "Formulario" de edição
+let editForm = document.querySelector("#editform"); // "Formulario" de edição
 let editTitle = document.querySelector("#edit-title"); // Titulo do Formulario de edição
 var input_edit = document.querySelector("#input-edit"); // Valor que esta armazenado no input da tela de editar
 
 let oldInputValue; // Armazenar antigo valor que será editado.
-
 
 let itemcounter = 0; //Contador que vai servir para armazenar o id da classe "item".
 
@@ -21,14 +20,14 @@ let itemcounter = 0; //Contador que vai servir para armazenar o id da classe "it
 
 //Função de Adicionar Tarefas
 function addTarefa() {
-    
-    //Pega o Valor Digitado no Input
-    valorInput = input.value;
+  //Pega o Valor Digitado no Input
+  valorInput = input.value;
 
-    if((valorInput !== "") && (valorInput !== null) && (valorInput !== undefined)){ //Verificão do valor input para caso NÃO seja vazio, nulo ou indefinido
+  if (valorInput !== "" && valorInput !== null && valorInput !== undefined) {
+    //Verificão do valor input para caso NÃO seja vazio, nulo ou indefinido
 
-        ++itemcounter;
-        let novoItem = `
+    ++itemcounter;
+    let novoItem = `
         <div class="item" id="${itemcounter}">
             <div class="item-icone">
                 <i onclick="finished(${itemcounter})" id="icone_${itemcounter}" class="mdi mdi-circle-outline"></i>
@@ -46,181 +45,205 @@ function addTarefa() {
             </div>
         </div>
         `;
-        // Adicionar Item na main
-        main.innerHTML += novoItem;
+    // Adicionar Item na main
+    main.innerHTML += novoItem;
 
-        //Zerar o Campo de input
-        input.value = "";
-        input.focus();
-        
-    }
-};
-
+    //Zerar o Campo de input
+    input.value = "";
+    input.focus();
+  }
+}
 
 // FIM - Evento Adicionar Tarefas
 
 // Função de deletar a tarefa
-function deletar(id){
-    var item = document.getElementById(id);
-    item.style.opacity = 0;
-    setTimeout(function() {
-        item.remove(); // remove o elemento após 500ms (tempo da transição)
-      }, 500);
+function deletar(id) {
+  var item = document.getElementById(id);
+  item.style.opacity = 0;
+  setTimeout(function () {
+    item.remove(); // remove o elemento após 500ms (tempo da transição)
+  }, 500);
 }
 
 // INICIO - Evento para finalizar tarefa
 
 // Função para marcar como Concluido
 
-function finished(id){
-    var item = document.getElementById(id);
-    var classe = item.getAttribute('class');
-    var icone = document.getElementById('icone_'+ id)
-    console.log(items)
+function finished(id) {
+  var item = document.getElementById(id);
+  var classe = item.getAttribute("class");
+  var icone = document.getElementById("icone_" + id);
+  
+  
 
-    if(classe=="item"){
-        item.classList.toggle('concluido');
+  if (classe == "item") {
+    item.classList.toggle("concluido");
 
-        icone.classList.remove('mdi-circle-outline')
-        icone.classList.add('mdi-check-circle')
+    icone.classList.remove("mdi-circle-outline");
+    icone.classList.add("mdi-check-circle");
+  } else {
+    item.classList.toggle("concluido");
 
-    }else{
-        item.classList.toggle('concluido');
-
-        icone.classList.remove('mdi-check-circle');
-        icone.classList.add('mdi-circle-outline');
-    }
-
+    icone.classList.remove("mdi-check-circle");
+    icone.classList.add("mdi-circle-outline");
+  }
 }
 
 // FIM - Evento para finalizar tarefa
 
 // INICIO - Evento de Editar
 
-// Função para o botão editar 
-function switchCard(){
-    mainInput.classList.toggle('hidden');
-    editForm.classList.toggle('hidden');
-    editBack.classList.toggle('hidden');
-    toolBar.classList.toggle('hidden');
-    editTitle.classList.toggle('hidden');
-    main.classList.toggle('hidden');
+// Função para o botão editar
+function switchCard() {
+  mainInput.classList.toggle("hidden");
+  editForm.classList.toggle("hidden");
+  editBack.classList.toggle("hidden");
+  toolBar.classList.toggle("hidden");
+  editTitle.classList.toggle("hidden");
+  main.classList.toggle("hidden");
 }
 // Botão de Editar a tarefa
 
+function uptadeInput(text) {
+  let item = document.querySelector(".item");
 
-function uptadeInput(text){
+  let items = document.querySelectorAll(".item");
 
-    let item = document.querySelector(".item")
-
-    let items = document.querySelectorAll(".item");
-
-    items.forEach((item) => {
-
+  items.forEach((item) => {
     let item_name = item.querySelector(".item-nome");
 
-        if(item_name.textContent.trim() === oldInputValue){
-            item_name.textContent = text;
-        }
-
-    })
-};
-
-function editar(id){
-
-    
-    var item = document.getElementById(id); // Pega a div inteira do separado pelo id do item por ser unico.
-
-    let item_name = item.querySelector(".item-nome").textContent.trim(); //pega o valor da div com classe item-nome de dentro da div ITEM
-    
-    let edit = document.querySelector(".edit"); // Classe do botão de editar na tarefa
-
-    if(edit.classList.contains("edit") || (item.classList.contains("mdi-pencil-outline"))){
-        switchCard();
-        
-        input_edit.value = item_name;
-        oldInputValue = item_name;
-
-        
+    if (item_name.textContent.trim() === oldInputValue) {
+      item_name.textContent = text;
     }
+  });
+}
 
+function editar(id) {
+  var item = document.getElementById(id); // Pega a div inteira do separado pelo id do item por ser unico.
+
+  let item_name = item.querySelector(".item-nome").textContent.trim(); //pega o valor da div com classe item-nome de dentro da div ITEM
+
+  let edit = document.querySelector(".edit"); // Classe do botão de editar na tarefa
+
+  if (
+    edit.classList.contains("edit") ||
+    item.classList.contains("mdi-pencil-outline")
+  ) {
+    switchCard();
+
+    input_edit.value = item_name;
+    oldInputValue = item_name;
+  }
 }
 
 //Evento no botão da seta para "voltar"
 
 editBack.addEventListener("click", (e) => {
-    e.preventDefault();
-    switchCard();
-    
+  e.preventDefault();
+  switchCard();
+});
 
-})
+editForm.addEventListener("submit", (e) => {
+  e.preventDefault();
 
-editForm.addEventListener("submit", (e)=>{
-    e.preventDefault();
+  const editInputValue = input_edit.value;
 
-    const editInputValue = input_edit.value;
+  if (editInputValue) {
+    // Atualizar
+    uptadeInput(editInputValue);
+  }
 
-    if(editInputValue){
-        // Atualizar
-        uptadeInput(editInputValue);
-    }
-
-    switchCard();
-        
-})
+  switchCard();
+});
 
 // FIM - Evento Editar
 
 //Evento para que o botão ENTER seja reconhecido na hora de adicionar uma tarefa
-input.addEventListener("keyup", function(event){
-    
-    if(event.key === "Enter"){
-        event.preventDefault();
-        btnAdd.click();
-        }
-    }
-)
-
+input.addEventListener("keyup", function (event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    btnAdd.click();
+  }
+});
 
 // INICIO - Evento pesquisar pela tarefa
 
+function search() {
+  let item = document.querySelector(".item");
 
-function search(){
+  let items = document.querySelectorAll(".item");
 
-    let item = document.querySelector(".item");
+  let inputSearch = document.querySelector("#input-search");
 
-    let items = document.querySelectorAll(".item");
+  inputSearch.addEventListener("input", function (e) {
+    const searchStr = e.target.value.toLowerCase();
+    console.log(items);
+    //console.log(e.target.value);
 
-    let inputSearch = document.querySelector("#input-search");
-
-    inputSearch.addEventListener('input',function(e){
-        const searchStr = e.target.value.toLowerCase();
-        console.log(items);
-        //console.log(e.target.value);
-
-        items.forEach(item =>{
-            let item_name = item.querySelector(".item-nome").textContent.trim();
-            if(item_name.toLowerCase().indexOf(searchStr) > -1 ){
-                item.style.display = "";
-            } else {
-                item.style.display ="none";
-            }
-        });
-    })
+    items.forEach((item) => {
+      let item_name = item.querySelector(".item-nome").textContent.trim();
+      if (item_name.toLowerCase().indexOf(searchStr) > -1) {
+        item.style.display = "";
+      } else {
+        item.style.display = "none";
+      }
+    });
+  });
 }
 
-
-
 // Fim - Evento pesquisar pela tarefa
+
+// INICIO - Filtro Seletor
+
+const filter = document.getElementById("filter-select");
+
+// Adiciona um ouvinte de eventos para o elemento "filter"
+filter.addEventListener("change", function() {
+  const selectedValue = this.value; // obtém o valor do filtro selecionado
+
+   // Define a função "filterTasks" que filtra as tarefas com base no filtro selecionado
+  function filterTasks(state) {
+      // obtém todas as tarefas da área de tarefas
+    let items = document.querySelectorAll(".item");
+
+    // Itera sobre todas as tarefas
+    items.forEach((item) => {
+      const taskState = item.classList.contains('concluido');
+    
+        // Mostra apenas as tarefas que correspondem ao filtro selecionado
+      if (state === 'all' || (state === 'done' && taskState) || (state === 'current' && !taskState)) {
+        item.style.display = 'flex';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  }
+  
+  filterTasks(selectedValue);// Chama a função "filterTasks" com o valor do filtro selecionado
+});
+
+// FIM - Filtro Seletor
 
 // INICIO - Evento da marcação de datas
 
 //Data Atualizada Diariamente
 const d = new Date();
-document.getElementById("dia").innerHTML = d.getDate()+" de";
+document.getElementById("dia").innerHTML = d.getDate() + " de";
 
-
-const months = [" Janeiro", " Fevereiro", " Março", " Abril", " Maio", " Junho", " Julho", " Agosto", " Setembro", " Outubro", " Novembro", " Dezembro"];
+const months = [
+  " Janeiro",
+  " Fevereiro",
+  " Março",
+  " Abril",
+  " Maio",
+  " Junho",
+  " Julho",
+  " Agosto",
+  " Setembro",
+  " Outubro",
+  " Novembro",
+  " Dezembro",
+];
 
 const m = new Date();
 let month = months[m.getMonth()];
