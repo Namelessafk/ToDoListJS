@@ -5,6 +5,13 @@
 Este Projeto é basicamente um to-do list mas com uma vibe mais aesthetic, não sei exatamente qual seria esse estilo artístico. Mas me deixa bem confortavel ver ele assim.
 Esse projeto também esta registrado no codepen: https://codepen.io/namelessafk/pen/PodpOqJ
 
+Atualização: 
+Depois de certas modificações o projeto agora é capaz de:
+
+Ter um Filtro de Pesquisa pelo nome da tarefa,
+Ter um Filtro por tipo de tarefa no caso, Todas, Concluidas e Em Andamento,
+E uma função de cache local para que as tarefas fiquem salvas mesmo se fechar ou atualizar a pagina.
+
 ![imagem do projeto](readmeImg/Imagem_vanilla.PNG)
 
 # Arquivos :skull:
@@ -28,6 +35,13 @@ Sinta-se livre para dar alguma ideia ou querer falar qualquer coisa sobre o proj
 
 This Project is basically a to-do list but with a more aesthetic vibe, I don't know exactly what that artistic style would be. But it makes me very comfortable to see him like this.
 This project is also registered on codepen: https://codepen.io/namelessafk/pen/PodpOqJ
+
+Update:
+After certain modifications the project is now capable of:
+
+Have a Search Filter by task name,
+Have a Filter by type of task in case, All, Completed and In Progress,
+And a local cache function so tasks are saved even if you close or refresh the page.
 
 ![project image](readmeImg/Imagem_vanilla.PNG)
 
