@@ -16,6 +16,40 @@ let oldInputValue; // Armazenar antigo valor que será editado.
 
 let itemcounter = 0; //Contador que vai servir para armazenar o id da classe "item".
 
+let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+
+// Carregar tarefas salvas no armazenamento local
+window.addEventListener('load', function() {
+  let savedTasks = JSON.parse(localStorage.getItem('tasks'));
+  if (savedTasks && savedTasks.length > 0) {
+    savedTasks.forEach(function(task) {
+      let novoItem = `
+        <div class="item" id="${task.id}">
+            <div class="item-icone">
+                <i onclick="finished(${task.id})" id="icone_${task.id}" class="mdi mdi-circle-outline"></i>
+            </div>
+            <div class="item-nome">
+                ${task.nome}
+            </div>
+            <div class="item-botao">
+                <button onclick="editar(${task.id})" class="edit">
+                <span class="mdi mdi-pencil-outline"></span>
+                </button>
+                <button onclick="deletar(${task.id})" class="delete">
+                <i class="mdi mdi-delete"></i>
+                </button>
+            </div>
+        </div>
+        `;
+      main.innerHTML += novoItem;
+    });
+  }
+});
+
+
+
+
 // INICIO - Evento Adicionar Tarefas
 
 //Função de Adicionar Tarefas
@@ -26,7 +60,14 @@ function addTarefa() {
   if (valorInput !== "" && valorInput !== null && valorInput !== undefined) {
     //Verificão do valor input para caso NÃO seja vazio, nulo ou indefinido
 
-    ++itemcounter;
+    let newItem ={
+      id: ++itemcounter,
+      nome: valorInput 
+    };
+
+    tasks.push(newItem);
+
+    //++itemcounter;
     let novoItem = `
         <div class="item" id="${itemcounter}">
             <div class="item-icone">
@@ -47,10 +88,14 @@ function addTarefa() {
         `;
     // Adicionar Item na main
     main.innerHTML += novoItem;
+    
+    // Atualiza a lista de tarefas no armazenamento local
+    localStorage.setItem('tasks', JSON.stringify(tasks));
 
     //Zerar o Campo de input
     input.value = "";
     input.focus();
+    console.log(tasks);
   }
 }
 
@@ -59,11 +104,26 @@ function addTarefa() {
 // Função de deletar a tarefa
 function deletar(id) {
   var item = document.getElementById(id);
-  item.style.opacity = 0;
-  setTimeout(function () {
-    item.remove(); // remove o elemento após 500ms (tempo da transição)
-  }, 500);
+  let index = tasks.findIndex(item => item.id === id);
+
+  console.log(index);
+  
+  if(index !== -1){
+    // Remove o item da lista de tarefas
+    tasks.splice(index, 1);
+
+    // Atualiza a lista de tarefas no armazenamento local
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+
+    item.style.opacity = 0;
+    setTimeout(function () {
+      item.remove(); // remove o elemento após 500ms (tempo da transição)
+    }, 500);
+  }
+
 }
+
+
 
 // INICIO - Evento para finalizar tarefa
 
@@ -223,6 +283,19 @@ filter.addEventListener("change", function() {
 });
 
 // FIM - Filtro Seletor
+
+// INICIO - Local Storage
+
+/*const items = localStorage.getItem('items')
+let items= [];
+if()
+*/
+
+
+//const items = localStorage=getItem('items')
+
+
+// Fim - Local Storage
 
 // INICIO - Evento da marcação de datas
 
